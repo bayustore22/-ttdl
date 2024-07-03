@@ -14,6 +14,7 @@
             <ul class="navbar-menu" id="navbar-menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="download.html">Download</a></li>
+                <li><a href="#">Play Music</a></li>
                 <li><a href="https://wa.me/6287792844953">Contact</a></li>
             </ul>
         </div>
@@ -60,6 +61,26 @@
         // Tambahkan event listener untuk tombol toggle menu
         document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('navbar-menu').classList.toggle('active');
+        }});
+          <!-- Adding background music -->
+    <audio id="background-music" loop>
+        <source src="https://music.youtube.com/watch?v=mzyzE6r1Sog&si=9Xp5m0q_Ck8XBZDJ" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const musicElement = document.getElementById('background-music');
+        const playMusicLink = document.querySelector('a[href="#"]');
+
+        playMusicLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (musicElement.paused) {
+                musicElement.play();
+                playMusicLink.textContent = 'Pause Music';
+            } else {
+                musicElement.pause();
+                playMusicLink.textContent = 'Play Music';
+            }
         });
     </script>
 </body>
