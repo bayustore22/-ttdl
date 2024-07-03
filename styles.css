@@ -1,0 +1,276 @@
+/* Existing CSS styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white; /* Warna putih */
+    overflow: hidden; /* Mengatur overflow agar tetesan hujan tidak terlihat di luar batas halaman */
+    background-image: url('url_gambar_anda.jpg'); /* Ganti 'url_gambar_anda.jpg' dengan URL gambar yang Anda inginkan */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.navbar {
+    background-color: #007bff;
+    padding: 10px 20px;
+    color: #fff;
+    position: relative;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Menjadikan posisi relatif untuk menentukan posisi submenu */
+}
+
+.navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    display: inline;
+}
+
+.navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar-menu a:hover {
+    text-decoration: underline;
+}
+.navbar-toggle {
+    display: flex;
+    align-items: center; /* Mengatur posisi tombol toggle agar berada di tengah vertikal */
+    justify-content: center; /* Mengatur posisi tombol toggle agar berada di tengah horizontal */
+    width: 40px; /* Menetapkan lebar tombol */
+    height: 40px; /* Menetapkan tinggi tombol */
+    font-size: 24px; /* Mengatur ukuran ikon */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute; /* Mengatur posisi tombol toggle agar mutlak terhadap navbar */
+    top: 50%; /* Mengatur posisi tombol toggle agar berada di tengah vertikal navbar */
+    right: 20px; /* Mengatur jarak tombol toggle dari tepi kanan navbar */
+    transform: translateY(-50%); /* Mengatur posisi tombol toggle agar tepat berada di tengah navbar */
+}
+
+
+.navbar-toggle-icon {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+}
+
+.navbar-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute; /* Mengatur posisi submenu agar mutlak terhadap navbar */
+    top: 100%; /* Mengatur posisi submenu agar muncul tepat di bawah navbar */
+    right: 0; /* Mengatur posisi submenu agar berada di sebelah kanan navbar */
+    background-color: #007bff; /* Mengatur warna latar submenu */
+}
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #007bff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.7); /* Atur latar belakang konten agar terlihat lebih jelas */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.slider {
+    position: relative;
+    height: 300px; /* Adjust the height as needed */
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.slider-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slider-image.active {
+    opacity: 1;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+input[type="text"] {
+    width: calc(100% - 40px); /* Mengurangi 40px dari lebar maksimum untuk memberikan ruang bagi tombol */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px; /* Menetapkan lebar tombol agar tetap terlihat proporsional */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+/* Gaya untuk loading spinner *//* Gaya untuk loading spinner */
+.loading-spinner {
+    display: none; /* Mulanya tersembunyi */
+    border: 6px solid #f3f3f3; /* Perkecil lebar border */
+    border-radius: 50%;
+    border-top: 6px solid #3498db; /* Perkecil lebar border-top */
+    width: 40px; /* Perkecil ukuran */
+    height: 40px; /* Perkecil ukuran */
+    animation: spin 2s linear infinite;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Media query untuk tampilan potret */
+@media (max-width: 768px) {
+    .loading-spinner {
+        width: 30px; /* Lebih kecil untuk tampilan potret */
+        height: 30px;
+        border-width: 4px; /* Lebih kecil untuk tampilan potret */
+        border-top-width: 4px;
+    }
+}
+
+/* Gaya untuk tombol download */
+.download-btn {
+    display: inline-block;
+    margin: 10px 5px; /* Jarak antara tombol */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background-color: #45a049;
+}
+
+#tiktok-content a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#tiktok-content a:hover {
+    background-color: #218838;
+}
+
+/* Additional responsive styles for smaller devices */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .slider {
+        height: 200px; /* Adjust height for smaller screens */
+    }
+}
